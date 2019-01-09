@@ -1,25 +1,11 @@
-package com.authorization.model;
+package com.authorization.model.response;
 
-import java.util.Date;
-
-public class UserInfo {
+public class ResponseUserInfo {
 
 	private String id;
-	private String password;
 	private String email;
 	private String name;
 	private String access_token;
-	private String salt;
-	
-	public String getSalt() {
-		return salt;
-	}
-
-	public void setSalt(String salt) {
-		this.salt = salt;
-	}
-
-	private Date timestamp;
 
 	public String getAccess_token() {
 		return access_token;
@@ -27,14 +13,6 @@ public class UserInfo {
 
 	public void setAccess_token(String access_token) {
 		this.access_token = access_token;
-	}
-
-	public Date getTimestamp() {
-		return timestamp;
-	}
-
-	public void setTimestamp(Date timestamp) {
-		this.timestamp = timestamp;
 	}
 
 	public String getName() {
@@ -59,14 +37,6 @@ public class UserInfo {
 
 	public void setId(String id) {
 		this.id = id;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
 	}
 
 }
