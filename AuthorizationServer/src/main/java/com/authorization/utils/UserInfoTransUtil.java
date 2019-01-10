@@ -1,5 +1,6 @@
 package com.authorization.utils;
 
+import com.authorization.model.RedisUserInfo;
 import com.authorization.model.UserInfo;
 import com.authorization.model.response.ResponseUserInfo;
 
@@ -13,5 +14,11 @@ public class UserInfoTransUtil {
 		rUserInfo.setName(userInfo.getName());
 		return rUserInfo;
 	}
+
+//	public RedisUserInfo responseToRedis(ResponseUserInfo responseUserInfo) {
+//		RedisUserInfo redisUserInfo = new RedisUserInfo();
+//		redisUserInfo.setIp(ip);
+//		return redisUserInfo;
+//	}
 
 }

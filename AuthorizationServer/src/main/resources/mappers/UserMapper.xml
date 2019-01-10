@@ -21,6 +21,25 @@
 			id = #{id}
 	</select>
 	
+	<select id="getPassword" parameterType="com.authorization.model.UserInfo" resultType="String">
+		select 
+			password
+		from 
+			user
+		where
+			id = #{id} and email = #{email} and name = #{name}
+			
+	</select>
+	
+	<update id="resetPassword" parameterType="map">
+		update
+			user
+		set
+			password = #{password}, salt = #{salt}
+		where
+			id = #{id}
+	</update>
+	
 	<insert id="insertUser" parameterType="com.authorization.model.UserInfo">
     	insert into USER (
     		id,

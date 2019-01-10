@@ -45,7 +45,7 @@ public class TokenGenerateUtil {
 	}
 
 	public String tokenGenerate() {
-		String keySource = "test1" + new Date().toString() + randomKey(5);
+		String keySource = randomKey(5) + new Date().toString() + randomKey(5);
 		byte[] tokenByte = new Base64(true).encodeBase64(keySource.getBytes());
 		String token = new String(tokenByte);
 		return token;
