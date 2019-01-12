@@ -10,7 +10,17 @@ public class UserInfo {
 	private String name;
 	private String access_token;
 	private String salt;
+	private String user_type;
+	private String reg_date;
 	
+	public String getUser_type() {
+		return user_type;
+	}
+
+	public void setUser_type(String user_type) {
+		this.user_type = user_type;
+	}
+
 	public String getSalt() {
 		return salt;
 	}
@@ -67,6 +77,14 @@ public class UserInfo {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getReg_date() {
+		return reg_date;
+	}
+
+	public void setReg_date(String reg_date) {
+		this.reg_date = reg_date;
 	}
 
 }

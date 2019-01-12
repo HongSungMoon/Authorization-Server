@@ -1,25 +1,18 @@
 package com.authorization.controller;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.authorization.model.UserInfo;
 import com.authorization.model.response.ResponseUserInfo;
 import com.authorization.service.UserService;
-import com.authorization.utils.CryptoUtil;
 import com.authorization.utils.IPAddressUtil;
-import com.authorization.utils.MailSendUtil;
 
 @CrossOrigin
 @RequestMapping("/user")

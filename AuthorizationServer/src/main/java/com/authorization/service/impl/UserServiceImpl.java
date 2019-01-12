@@ -38,7 +38,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public ResponseUserInfo login(UserInfo userInfo, String ip) {
 
-		UserInfo result = userMapper.getUser(userInfo.getId());
+		UserInfo result = userMapper.getUserByID(userInfo.getId());
 
 		if (result != null) {
 			String encPasswd = cryptoUtil.sha256(result.getSalt() + userInfo.getPassword());
@@ -46,6 +46,7 @@ public class UserServiceImpl implements UserService {
 				ResponseUserInfo responseUserInfo =  accessTokenService.generateToken(result);
 				RedisUserInfo redisUserInfo = new RedisUserInfo();
 				redisUserInfo.setIp(ip);
+				redisUserInfo.setUser_type(responseUserInfo.getUser_type());
 				
 				//TODO: Redis에 데이터 추가
 				redisService.insertToken(responseUserInfo.getAccess_token(), redisUserInfo);
@@ -93,7 +94,9 @@ public class UserServiceImpl implements UserService {
 		mailSendUti.setJavaMailSender(javaMailSender);
 		String tmpPasswd = cryptoUtil.randomKey(10);
 		
-		mailSendUti.sendSimpleMessage(userInfo.getEmail(), "Password", "Your new password is \"" + tmpPasswd +"\"nI recommend that you change your password after login to the homepage.");
+		mailSendUti.sendSimpleMessage(userInfo.getEmail(), 
+				"Password", "Your new password is \"" + tmpPasswd +"\"\n"
+						+ "I recommend that you change your password after login to the homepage.");
 		
 		String salt = cryptoUtil.randomKey(10);
 		String encPasswd = cryptoUtil.sha256(salt + tmpPasswd);
